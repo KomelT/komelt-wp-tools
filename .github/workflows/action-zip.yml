@@ -4,4 +4,4 @@ jobs:
   Zip:
     runs-on: ubuntu-latest
     steps:
-      - run: ls
+      - run: ls > test.txt
