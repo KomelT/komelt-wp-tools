@@ -1,14 +1,8 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  composer-install:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: composer install --ansi --no-progress --no-interaction --prefer-dist
-      - uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r komelt-wordpress-tools.zip komelt-wordpress-tools
-      - uses: actions/upload-artifact@v2
-        with:
-          name: komelt-wordpress-tools.zip
+      - name: Zip komelt-wordpress-tools to komelt-wordpress-tools.zip
+      run: zip -r ${{ github.workspace }}/komelt-wordpress-tools.zip ${{ github.workspace }}/komelt-wordpress-tools
