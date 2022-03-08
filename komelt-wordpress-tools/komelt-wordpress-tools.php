@@ -4,7 +4,7 @@
  * @package           komelt-wordpress-tools
  * @author            Tilen Komel
  * @copyright         2022 Komelt.dev
- * @license           GPL-2.0
+ * @license           MIT
  *
  * @wordpress-plugin
  * Plugin Name:       Komelt WordPress Tools
@@ -16,6 +16,6 @@
  * Author:            Tilen Komel
  * Author URI:        https://www.komelt.dev
  * Text Domain:       komelt-wordpress-tools
- * License:           GPL v2
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:           MIT
+ * License URI:       https://raw.githubusercontent.com/KomelT/komelt-wordpress-tools/main/LICENSE
  */
