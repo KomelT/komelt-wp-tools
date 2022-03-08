@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Zip komelt-wordpress-tools to komelt-wordpress-tools.zip
-      run: zip -r ${{ github.workspace }}/komelt-wordpress-tools.zip ${{ github.workspace }}/komelt-wordpress-tools
+        run: zip -r ${{ github.workspace }}/komelt-wordpress-tools.zip ${{ github.workspace }}/komelt-wordpress-tools
