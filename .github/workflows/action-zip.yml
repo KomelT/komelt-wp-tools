@@ -4,4 +4,4 @@ jobs:
   Zip:
     runs-on: ubuntu-latest
     steps:
-      - run: zip -r komelt-wordpress-tools.zip komelt-wordpress-tools
+      - run: ls
