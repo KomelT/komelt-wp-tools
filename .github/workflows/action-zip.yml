@@ -1,7 +1,14 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Zip:
+  composer-install:
     runs-on: ubuntu-latest
     steps:
-      - run: ls > test.txt
+      - uses: actions/checkout@v1
+      - run: composer install --ansi --no-progress --no-interaction --prefer-dist
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r komelt-wordpress-tools.zip komelt-wordpress-tools
+      - uses: actions/upload-artifact@v2
+        with:
+          name: komelt-wordpress-tools.zip
