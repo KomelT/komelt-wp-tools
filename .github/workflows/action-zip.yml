@@ -1,4 +1,7 @@
-name: action-zip
-- uses: montudor/action-zip@v1.0.0
-  with:
-    args: zip -qq -r komelt-wordpress-tools.zip komelt-wordpress-tools
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Zip:
+    runs-on: ubuntu-latest
+    steps:
+      - run: zip -r komelt-wordpress-tools.zip komelt-wordpress-tools
