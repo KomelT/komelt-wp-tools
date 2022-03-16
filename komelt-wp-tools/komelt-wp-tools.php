@@ -49,18 +49,26 @@ if (!defined("ABSPATH") or !function_exists("add_action")) {
 
 class KomeltWpTools
 {
+    // Function runs on every refresh
     function __construct()
     {
+        // Includin plugin page
+        add_action('admin_menu', function () {
+            add_menu_page('Komelt Tools Plugin', 'Komelt Tools', 'manage_options', 'komelt-tools', 'komelt_init_plugin_page', "dashicons-admin-tools");
+        });
     }
 
     function activate()
     {
-        echo "The plugin  was activated!";
     }
 
     function deactivate()
     {
         echo "The plugin  was activated!";
+    }
+
+    function index_page()
+    {
     }
 }
 
@@ -73,3 +81,40 @@ register_activation_hook(__FILE__, array($komeltWpTools, "activate"));
 
 // deactivation
 register_deactivation_hook(__FILE__, array($komeltWpTools, "deactivate"));
+
+function komelt_init_plugin_page()
+{
+    echo "<h1>Welcome to Komelt Tools Plugin!</h1>";
+
+    global $wpdb;
+    $wpdb->hide_errors();
+
+    //$wpdb->get_results("drop table komelt_tools_data");
+
+    $results = $wpdb->get_results("SELECT * FROM komelt_tools_data");
+
+    // Check if table 'wordpress.komelt_tools_data' exists
+    if (!($wpdb->last_error == "")) {
+        $error = $wpdb->last_error;
+        print "<strong>Error: " . $error . "</strong><br>";
+
+        if ($error == "Table 'wordpress.komelt_tools_data' doesn't exist") {
+            echo "Solving problem...<br>";
+
+            $wpdb->get_results(
+                "create table komelt_tools_data 
+                    (tool_slug varchar(255), 
+                    tool_name varchar(255), 
+                    enabled boolean)"
+            );
+            $wpdb->get_results("SELECT * FROM komelt_tools_data");
+            $error = $wpdb->last_error;
+            if ($error == "") {
+                echo "<strong>Problem fixed!</strong>";
+            }
+        }
+    }
+
+
+    //$wpdb->get_results("drop table komelt_tools_data");
+}

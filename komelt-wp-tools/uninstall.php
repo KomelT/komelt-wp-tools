@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Triger thi file on plugin uninstall
+ * Triger this file on plugin uninstall
  *
  * @package komelt-wp-tools
  */
